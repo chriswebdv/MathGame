@@ -16,17 +16,18 @@ namespace MathGame
             {
                 Console.WriteLine("Please choose operator, add, subtract, multiple or divide");
                 string choice = Console.ReadLine().ToLower();
-                Console.WriteLine("First number");
-                int num1 = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Second number");
-                int num2 = Convert.ToInt32(Console.ReadLine());
-
 
                 if (choice == "")
                 {
                     break;
                 }
-                if (choice != "add" || choice != "subtract" || choice != "multiply" || choice != "divide")
+
+                Console.WriteLine("First number");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Second number");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+
+                if (choice != "add" && choice != "subtract" && choice != "multiply" && choice != "divide")
                 {
                     continue;
                 }
