@@ -20,11 +20,23 @@ namespace MathGame
 
             while (true)
             {
-                Console.WriteLine("Please choose operator, add, subtract, multiple or divide");
+                Console.WriteLine("____________________________________________________________");
+                Console.WriteLine("PLEASE CHOOSE OPERATOR, ADD, SUBTRACT, MULTIPLY OR DIVIDE");
+                Console.WriteLine("OR TYPE HISTORY TO CHECK PREVIOUS GAMES");
+                Console.WriteLine("____________________________________________________________");
                 string choice = Console.ReadLine().ToLower();
 
                 if (choice == "")
                 {
+                    break;
+                }
+                // Record previous games inside a list to access them
+                if (choice == "history")
+                {
+                    foreach (String game in games)
+                    {
+                        Console.WriteLine(game);
+                    }
                     break;
                 }
 
@@ -40,16 +52,19 @@ namespace MathGame
                 else if (choice == "add")
                 {
                     Console.WriteLine($"Your result is {num1 + num2}");
+                    games.Add($"{num1} + {num2} = {num1 + num2}");
                     totalGames++;
                 }
                 else if (choice == "subtract")
                 {
                     Console.WriteLine($"Your result is {num1 - num2}");
+                    games.Add($"{num1} - {num2} = {num1 - num2}");
                     totalGames--;
                 }
                 else if (choice == "multiply")
                 {
                     Console.WriteLine($"Your result is {num1 * num2}");
+                    games.Add($"{num1} * {num2} = {num1 * num2}");
                     totalGames++;
                 }
                 else
@@ -58,9 +73,10 @@ namespace MathGame
                     {
                         if ((num1 >= 0 && num1 <= 100) && (num2 >= 0 && num2 <= 100))
                         {
-                            if (num1 % num2 == 0)
+                            if (num2 != 0 && num1 % num2 == 0)
                             {
                                 Console.WriteLine($"Your result is {num1 / num2}");
+                                games.Add($"{num1} / {num2} = {num1 / num2}");
                                 totalGames++;
                             }
 
@@ -73,8 +89,6 @@ namespace MathGame
                 }
             }
             Console.WriteLine($"Your total games played are {totalGames}");
-
-            // Record previous games inside a list to access them
 
         }
 
