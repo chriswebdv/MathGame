@@ -10,7 +10,13 @@ namespace MathGame
 
             // Create menu to choose math operator
             // Create Math Game that uses the 4 basic math operators
-            // Divisions must be int only, from 0 - 100 
+            // Divisions must be integers only, from 0 - 100 
+
+            // Add the total games played
+            int totalGames = 0;
+
+            // Create list to keep track of the games played
+            List<String> games = new List<String>();
 
             while (true)
             {
@@ -34,14 +40,17 @@ namespace MathGame
                 else if (choice == "add")
                 {
                     Console.WriteLine($"Your result is {num1 + num2}");
+                    totalGames++;
                 }
                 else if (choice == "subtract")
                 {
                     Console.WriteLine($"Your result is {num1 - num2}");
+                    totalGames--;
                 }
                 else if (choice == "multiply")
                 {
                     Console.WriteLine($"Your result is {num1 * num2}");
+                    totalGames++;
                 }
                 else
                 {
@@ -52,6 +61,7 @@ namespace MathGame
                             if (num1 % num2 == 0)
                             {
                                 Console.WriteLine($"Your result is {num1 / num2}");
+                                totalGames++;
                             }
 
                         }
@@ -62,7 +72,7 @@ namespace MathGame
                     } 
                 }
             }
-            Console.WriteLine("Got out of the loop");
+            Console.WriteLine($"Your total games played are {totalGames}");
 
             // Record previous games inside a list to access them
 
